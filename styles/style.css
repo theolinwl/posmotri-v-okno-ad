@@ -80,13 +80,93 @@ ol {
 
 .search-form {
   display: flex;
-  gap: 40px;
-  justify-content: start;
+  justify-content: space-between;
+}
+
+.search-form__fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .search-form__fieldset-title {
   font-size: 18px;
   font-weight: normal;
+}
+
+.search-form__checkbox-list {
+  display: flex;
+  gap: 15px;
+}
+
+.search-form__label {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+}
+
+.search-form__labe:focus {
+  outline: none;
+}
+
+.search-form__textfield {
+  width: 225px;
+  font-family: inherit;
+  color: inherit;
+  font-size: 18px;
+  background-color: transparent;
+  border-left: none;
+  border-right: none;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  padding: 2.5px 0;
+  appearance: none;
+}
+
+.search-form__textfield:focus {
+  outline: none;
+}
+
+.search-form__textfield:active {
+  border: 1px solid #fff;
+}
+
+.search-form__label:has(:focus-visible) {
+  outline: 1px solid #fff;
+  outline-offset: 2px;
+}
+
+.search-form__pseudo-checkbox {
+  position: relative;
+  height: 19px;
+  width: 19px;
+  border: 1px solid #fff;
+  margin-right: 5px;
+}
+
+.search-form__pseudo-checkbox::after{
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  display: none;
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
+}
+
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
+  display: block;
+}
+
+.search-form__checkbox:active + .search-form__pseudo-checkbox::after {
+  display: block;
+}
+
+.search-form__label:has(.search-form__checkbox):hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .content__details {
@@ -110,7 +190,7 @@ ol {
 
 .content__video-card {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
 }
 
 .content__video-card-description-container {
@@ -159,4 +239,14 @@ ol {
   overflow: hidden;
   -webkit-line-clamp: 1;
   line-clamp: 1;
+}
+
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
